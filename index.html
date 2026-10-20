@@ -3,146 +3,201 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edwin Liona Jaya — Website untuk Kafe, Restoran &amp; Bakery di Bandung</title>
-<meta name="description" content="Jasa pembuatan website untuk kafe, restoran, dan bakery di Bandung. Desain elegan, menu online, pemesanan dan reservasi lewat WhatsApp.">
-<meta property="og:title" content="Edwin Liona Jaya — Website untuk Kafe, Restoran & Bakery">
-<meta property="og:description" content="Desain elegan, pemesanan via WhatsApp, reservasi, dan Google Maps untuk bisnis F&B di Bandung.">
+<title>Edwin Liona Jaya — Jasa Pembuatan Website Apa Pun, Bandung</title>
+<meta name="description" content="Web developer di Bandung. Company profile, landing page, toko online, reservasi, menu digital, hingga web app. Satu orang, dari ide sampai tayang.">
+<meta property="og:title" content="Edwin Liona Jaya — Website Apa Pun yang Anda Butuhkan">
+<meta property="og:description" content="Company profile, landing page, toko online, reservasi, menu digital, hingga web app. Dari ide sampai tayang.">
 <meta property="og:image" content="thumbs/restaurant-bandung.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2714%27 fill=%27%23a8794a%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 fill=%27%23c8ff2e%27 stroke=%27%230b0b0b%27 stroke-width=%274%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f4ee;
-    --bg-alt: #efeadf;
-    --ink: #1b1915;
-    --muted: #7b756a;
-    --line: #dfd8c9;
-    --accent: #a8794a;
-    --wa: #1faa59;
-    --serif: "Fraunces", Georgia, serif;
-    --sans: "DM Sans", system-ui, sans-serif;
+    --paper: #f1efe8;
+    --ink: #0b0b0b;
+    --muted: #55524a;
+    --acid: #c8ff2e;
+    --wa: #25d366;
+    --bd: 3px solid var(--ink);
+    --sh: 6px 6px 0 var(--ink);
+    --sans: "Space Grotesk", system-ui, sans-serif;
+    --serif: "Instrument Serif", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; overflow-x: clip; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased;
+    background-image: linear-gradient(rgba(11,11,11,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(11,11,11,.045) 1px, transparent 1px); background-size: 48px 48px; }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-  section { padding: 110px 0; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.1; letter-spacing: -.015em; }
-  h2 { font-size: clamp(2.1rem, 4.5vw, 3.3rem); margin: 12px 0 16px; }
-  em { font-style: italic; color: var(--accent); }
-  .eyebrow { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
-  .lead { color: var(--muted); max-width: 520px; }
+  ::selection { background: var(--acid); color: var(--ink); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 104px 0; border-bottom: var(--bd); }
+  h1, h2, h3 { font-family: var(--sans); font-weight: 700; line-height: .98; letter-spacing: -.035em; }
+  h2 { font-size: clamp(2.5rem, 6.5vw, 5.2rem); }
+  .ed { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+  mark { background: var(--acid); color: var(--ink); padding: 0 .12em; box-shadow: inset 0 0 0 0; }
+  .mono, .label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+  .label { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+  .label b { background: var(--ink); color: var(--acid); padding: 3px 8px; font-weight: 700; }
+  .sec-head { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; margin-bottom: 56px; }
+  .sec-head p { color: var(--muted); max-width: 440px; justify-self: end; }
 
-  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: .3s; }
-  header.scrolled { background: rgba(247,244,238,.92); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line); }
-  nav { display: flex; justify-content: space-between; align-items: center; height: 76px; }
-  .logo { font-family: var(--serif); font-size: 1.45rem; }
-  .logo span { color: var(--accent); font-style: italic; }
-  .menu { display: flex; gap: 34px; list-style: none; align-items: center; }
-  .menu a { font-size: 14px; font-weight: 500; transition: color .2s; }
-  .menu a:hover { color: var(--accent); }
-  .menu .cta { background: var(--ink); color: var(--bg); padding: 11px 24px; border-radius: 99px; transition: .3s; }
-  .menu .cta:hover { background: var(--accent); color: #fff; }
-  .burger { display: none; background: none; border: 0; width: 34px; height: 34px; cursor: pointer; position: relative; }
-  .burger span { position: absolute; left: 5px; right: 5px; height: 1.5px; background: var(--ink); transition: .3s; }
-  .burger span:nth-child(1) { top: 12px; } .burger span:nth-child(2) { top: 20px; }
-  .burger.open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
-  .burger.open span:nth-child(2) { top: 16px; transform: rotate(-45deg); }
+  /* Header */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: var(--paper); border-bottom: var(--bd); }
+  nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -.03em; display: flex; align-items: center; gap: 10px; }
+  .logo i { width: 18px; height: 18px; background: var(--acid); border: 3px solid var(--ink); display: block; }
+  .menu { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .menu a { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 500; }
+  .menu a:not(.cta):hover { background: var(--ink); color: var(--acid); padding: 2px 6px; margin: -2px -6px; }
+  .menu .cta { background: var(--acid); border: var(--bd); padding: 9px 18px; box-shadow: 4px 4px 0 var(--ink); transition: .15s; display: inline-block; }
+  .menu .cta:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--ink); }
+  .burger { display: none; background: var(--acid); border: var(--bd); width: 42px; height: 42px; cursor: pointer; position: relative; }
+  .burger span { position: absolute; left: 8px; right: 8px; height: 3px; background: var(--ink); transition: .25s; }
+  .burger span:nth-child(1) { top: 12px; } .burger span:nth-child(2) { top: 21px; }
+  .burger.open span:nth-child(1) { top: 17px; transform: rotate(45deg); }
+  .burger.open span:nth-child(2) { top: 17px; transform: rotate(-45deg); }
 
-  .btn { display: inline-flex; align-items: center; gap: 10px; font: inherit; font-size: 14px; font-weight: 500; padding: 15px 30px; border-radius: 99px; border: 1.5px solid var(--ink); background: none; color: var(--ink); cursor: pointer; transition: .3s; }
-  .btn:hover { background: var(--ink); color: var(--bg); }
-  .btn.solid { background: var(--ink); color: var(--bg); }
-  .btn.solid:hover { background: var(--accent); border-color: var(--accent); }
-  .btn.wa { background: var(--wa); border-color: var(--wa); color: #fff; }
-  .btn.wa:hover { filter: brightness(1.08); background: var(--wa); }
-  .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 16px 26px; border: var(--bd); background: var(--paper); color: var(--ink); box-shadow: var(--sh); cursor: pointer; transition: .15s; }
+  .btn:hover { transform: translate(4px,4px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--acid); }
+  .btn.acid { background: var(--acid); }
+  .btn.wa { background: var(--wa); }
+  .btns { display: flex; gap: 18px; flex-wrap: wrap; }
 
   /* Hero */
-  .hero { padding: 170px 0 110px; }
-  .hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); margin: 22px 0 28px; max-width: 980px; }
-  .hero p { color: var(--muted); max-width: 520px; margin-bottom: 40px; font-size: 1.08rem; }
-  .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
-  .tags span { font-size: 13px; color: var(--muted); border: 1px solid var(--line); padding: 6px 16px; border-radius: 99px; }
+  .hero { padding: 150px 0 0; }
+  .hero-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+  .status { display: inline-flex; align-items: center; gap: 10px; border: var(--bd); background: var(--paper); padding: 6px 14px; box-shadow: 4px 4px 0 var(--ink); }
+  .status::before { content: ""; width: 10px; height: 10px; background: #19c14b; border-radius: 50%; animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  .hero h1 { font-size: clamp(3.4rem, 11.5vw, 10rem); line-height: .92; letter-spacing: -.055em; text-transform: none; }
+  .hero h1 mark { display: inline-block; line-height: .85; padding: .04em .12em .1em; margin-top: .06em; }
+  .hero h1 .ed { font-size: 1.04em; letter-spacing: -.03em; }
+  .hero-bot { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: end; margin: 56px 0 72px; }
+  .hero-bot p { font-size: 1.15rem; max-width: 520px; border-left: 6px solid var(--acid); padding-left: 20px; box-shadow: -3px 0 0 var(--ink); }
+  .hero-bot .btns { justify-content: flex-end; }
+  .ticker { border-top: var(--bd); background: var(--ink); color: var(--acid); overflow: hidden; white-space: nowrap; padding: 16px 0; }
+  .ticker div { display: inline-flex; gap: 34px; animation: tick 34s linear infinite; padding-left: 34px; }
+  .ticker span { font-family: var(--mono); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .1em; }
+  .ticker span::after { content: "✦"; margin-left: 34px; color: var(--paper); }
+  @keyframes tick { to { transform: translateX(-50%); } }
 
   /* Work */
-  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 32px 0 44px; }
-  .chip { font: inherit; font-size: 14px; font-weight: 500; background: none; border: 1.5px solid var(--line); color: var(--muted); padding: 9px 22px; border-radius: 99px; cursor: pointer; transition: .25s; }
-  .chip:hover { border-color: var(--ink); color: var(--ink); }
-  .chip.active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .card { display: block; }
+  #karya { background: var(--acid); }
+  #karya .sec-head p { color: var(--ink); }
+  .chips { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .chip { font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: var(--paper); border: var(--bd); padding: 10px 18px; cursor: pointer; transition: .15s; color: var(--ink); }
+  .chip:hover { background: var(--ink); color: var(--acid); }
+  .chip.active { background: var(--ink); color: var(--acid); box-shadow: 4px 4px 0 var(--paper); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .card { display: block; background: var(--paper); border: var(--bd); box-shadow: var(--sh); transition: .18s; }
+  .card:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 var(--ink); }
   .card.hide { display: none; }
-  .shot { aspect-ratio: 16/10; overflow: hidden; border-radius: 14px; border: 1px solid var(--line); background: var(--bg-alt); position: relative; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-  .card:hover .shot img { transform: scale(1.04); }
-  .shot .open { position: absolute; right: 14px; bottom: 14px; background: var(--bg); color: var(--ink); font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 99px; opacity: 0; transform: translateY(8px); transition: .35s; }
-  .card:hover .shot .open, .card:focus-visible .shot .open { opacity: 1; transform: none; }
-  .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 16px; }
-  .meta h3 { font-size: 1.45rem; font-weight: 400; }
-  .meta span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
-  .card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin-top: 4px; }
-  .note { margin-top: 48px; font-size: 14px; color: var(--muted); border-left: 2px solid var(--accent); padding-left: 16px; max-width: 640px; }
+  .shot { aspect-ratio: 16/10; overflow: hidden; border-bottom: var(--bd); position: relative; background: #ddd; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: grayscale(1) contrast(1.05); transition: filter .3s, transform .6s; }
+  .card:hover .shot img { filter: none; transform: scale(1.03); }
+  .shot .no { position: absolute; left: 0; top: 0; background: var(--ink); color: var(--acid); font-family: var(--mono); font-weight: 700; font-size: 12px; padding: 6px 12px; }
+  .shot .open { position: absolute; right: 0; bottom: 0; background: var(--acid); border-top: var(--bd); border-left: var(--bd); font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 8px 14px; }
+  .body { padding: 20px 22px 24px; }
+  .meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .meta h3 { font-size: 1.7rem; }
+  .meta span { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; border: 2px solid var(--ink); padding: 3px 8px; white-space: nowrap; }
+  .card p { font-size: 14.5px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .card.next { background: var(--ink); color: var(--paper); grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px; padding: 36px 40px; box-shadow: 8px 8px 0 var(--paper); }
+  .card.next:hover { box-shadow: 12px 12px 0 var(--paper); }
+  .card.next h3 { font-size: clamp(2rem, 5vw, 3.8rem); }
+  .card.next h3 .ed { color: var(--acid); }
+  .card.next p { color: #bdb9ad; margin-top: 12px; max-width: 520px; font-size: 15px; }
+  .card.next .go { font-family: var(--mono); font-weight: 700; text-transform: uppercase; background: var(--acid); color: var(--ink); padding: 16px 24px; border: 3px solid var(--paper); white-space: nowrap; }
+  .note { margin-top: 44px; font-family: var(--mono); font-size: 12px; letter-spacing: .02em; max-width: 720px; border: var(--bd); background: var(--paper); padding: 14px 18px; }
 
   /* Services */
-  .services { background: var(--bg); }
-  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border-top: 1px solid var(--line); }
-  .svc { padding: 40px 32px 40px 0; border-bottom: 1px solid var(--line); }
-  .svc:not(:nth-child(3n+1)) { padding-left: 32px; border-left: 1px solid var(--line); }
-  .svc .n { font-family: var(--serif); font-style: italic; color: var(--accent); }
-  .svc h3 { font-size: 1.6rem; font-weight: 400; margin: 10px 0 8px; }
-  .svc p { color: var(--muted); font-size: .95rem; }
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--bd); background: var(--paper); box-shadow: var(--sh); }
+  .svc { padding: 30px 26px 34px; border-right: var(--bd); border-bottom: var(--bd); transition: background .15s, color .15s; min-height: 250px; display: flex; flex-direction: column; }
+  .svc:nth-child(4n) { border-right: 0; }
+  .svc:nth-child(n+5) { border-bottom: 0; }
+  .svc:hover { background: var(--ink); color: var(--paper); }
+  .svc:hover .n { color: var(--acid); }
+  .svc:hover p { color: #bdb9ad; }
+  .svc .n { font-family: var(--mono); font-weight: 700; font-size: 13px; }
+  .svc h3 { font-size: 1.55rem; margin: auto 0 10px; padding-top: 36px; }
+  .svc p { color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  .more { margin-top: 36px; font-family: var(--serif); font-style: italic; font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.15; }
+  .more a { background: var(--acid); border-bottom: 3px solid var(--ink); padding: 0 .1em; }
+  .more a:hover { background: var(--ink); color: var(--acid); }
 
   /* Process */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 56px; }
-  .step { border-top: 1.5px solid var(--ink); padding-top: 22px; }
-  .step h3 { font-size: 1.45rem; font-weight: 400; margin: 8px 0; }
-  .step p { color: var(--muted); font-size: .93rem; }
+  #proses { background: var(--ink); color: var(--paper); }
+  #proses .sec-head p { color: #bdb9ad; }
+  #proses .label b { background: var(--acid); color: var(--ink); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .step { border: 3px solid var(--paper); padding: 26px 24px 30px; position: relative; }
+  .step .big { font-family: var(--sans); font-weight: 700; font-size: 5rem; line-height: .8; letter-spacing: -.06em; color: var(--acid); display: block; margin-bottom: 38px; }
+  .step h3 { font-size: 1.6rem; margin-bottom: 10px; }
+  .step p { color: #bdb9ad; font-size: 14.5px; line-height: 1.5; }
 
   /* About */
-  .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: center; }
-  .portrait { aspect-ratio: 4/5; max-width: 420px; border-radius: 200px 200px 16px 16px; background: var(--bg-alt); border: 1px solid var(--line); position: relative; overflow: hidden; display: grid; place-items: center; color: var(--muted); font-family: var(--serif); font-style: italic; }
-  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 22%; }
+  .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+  .portrait { aspect-ratio: 4/5; max-width: 440px; border: var(--bd); box-shadow: 12px 12px 0 var(--acid), 12px 12px 0 3px var(--ink); position: relative; overflow: hidden; background: #ddd; }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 22%; filter: grayscale(1) contrast(1.1); }
+  .portrait::after { content: "EDWIN / BDG"; position: absolute; left: 0; bottom: 0; background: var(--ink); color: var(--acid); font-family: var(--mono); font-weight: 700; font-size: 12px; padding: 6px 12px; }
+  .about-grid h2 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); margin-bottom: 26px; }
+  .about-grid .lead { font-size: 1.08rem; max-width: 560px; }
+  .about-grid .lead + .lead { margin-top: 16px; }
   [hidden] { display: none !important; }
+  .facts { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .facts span { font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; border: 2px solid var(--ink); padding: 5px 10px; background: var(--paper); }
 
   /* Contact */
-  .contact { background: var(--ink); color: var(--bg); text-align: center; border-radius: 48px 48px 0 0; }
-  .contact h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 820px; margin: 18px auto; }
-  .contact em { color: #d1a374; }
-  .contact .eyebrow { color: #d1a374; }
-  .contact .lead { color: #aaa397; margin: 0 auto 40px; }
-  .contact .btns { justify-content: center; }
-  .contact .btn:not(.wa) { border-color: #5b564d; color: var(--bg); }
-  .contact .btn:not(.wa):hover { background: var(--bg); color: var(--ink); }
-  footer { background: var(--ink); color: #8a8478; text-align: center; padding: 32px 24px 40px; font-size: 13px; border-top: 1px solid #2b2822; }
+  .contact { background: var(--acid); border-bottom: 0; text-align: left; }
+  .contact h2 { font-size: clamp(3rem, 10vw, 8.6rem); line-height: .88; letter-spacing: -.055em; margin-bottom: 36px; }
+  .contact .row { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+  .contact p { font-size: 1.15rem; max-width: 460px; }
+  footer { background: var(--ink); color: #bdb9ad; padding: 22px 24px 26px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { border-bottom: 1px solid var(--acid); color: var(--acid); }
 
-  .fab { position: fixed; right: 20px; bottom: 20px; z-index: 55; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25); transition: .3s; }
-  .fab:hover { transform: scale(1.08); }
-  .fab svg { width: 28px; height: 28px; fill: #fff; }
+  .fab { position: fixed; right: 20px; bottom: 20px; z-index: 55; width: 60px; height: 60px; background: var(--wa); border: var(--bd); box-shadow: 4px 4px 0 var(--ink); display: grid; place-items: center; transition: .15s; }
+  .fab:hover { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--ink); }
+  .fab svg { width: 28px; height: 28px; fill: var(--ink); }
 
-  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s, transform .8s; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
   .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } .shot img { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } .ticker div, .status::before { animation: none; } }
 
-  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1040px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+    .svc:nth-child(4n) { border-right: var(--bd); } .svc:nth-child(2n) { border-right: 0; }
+    .svc:nth-child(n+5) { border-bottom: var(--bd); } .svc:nth-child(n+7) { border-bottom: 0; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 760px) {
-    section { padding: 72px 0; }
+    section { padding: 68px 0; }
     .burger { display: block; }
-    .menu { position: fixed; inset: 76px 0 auto 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 6px 24px 24px; transform: translateY(-120%); transition: transform .4s; z-index: -1; align-items: stretch; }
+    .menu { position: fixed; inset: 64px 0 auto 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: var(--bd); padding: 0 24px 22px; transform: translateY(-130%); transition: transform .35s; z-index: -1; align-items: stretch; }
     .menu.open { transform: none; }
-    .menu li { border-bottom: 1px solid var(--line); }
+    .menu li { border-bottom: 2px solid var(--ink); }
     .menu a { display: block; padding: 16px 0; }
-    .menu .cta { text-align: center; margin-top: 16px; padding: 14px; border-bottom: 0; }
-    .hero { padding-top: 130px; }
-    .grid, .svc-grid, .about-grid { grid-template-columns: 1fr; }
-    .about-grid { gap: 40px; }
-    .portrait { max-width: 300px; }
-    .svc, .svc:not(:nth-child(3n+1)) { padding: 32px 0; border-left: 0; }
-    .steps { grid-template-columns: 1fr; gap: 24px; }
-    .contact { border-radius: 32px 32px 0 0; }
-    .shot .open { opacity: 1; transform: none; }
+    .menu a:not(.cta):hover { margin: 0; padding: 16px 0; }
+    .menu li:last-child { border: 0; margin-top: 18px; }
+    .menu .cta { text-align: center; padding: 14px; }
+    .hero { padding-top: 112px; }
+    .hero-top > span:last-child { display: none; }
+    .hero h1 { font-size: clamp(3rem, 14vw, 5rem); }
+    .hero-bot, .sec-head, .about-grid, .contact .row { grid-template-columns: 1fr; gap: 28px; }
+    .hero-bot .btns { justify-content: flex-start; }
+    .sec-head p { justify-self: start; }
+    .grid { grid-template-columns: 1fr; }
+    .card.next { grid-template-columns: 1fr; padding: 26px 22px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc, .svc:nth-child(n) { border-right: 0; border-bottom: var(--bd); min-height: 0; }
+    .svc:last-child { border-bottom: 0; }
+    .steps { grid-template-columns: 1fr; }
+    .portrait { max-width: 320px; }
+    footer { flex-direction: column; }
   }
 </style>
 </head>
@@ -151,7 +206,7 @@
 <header id="top">
   <div class="wrap">
     <nav aria-label="Menu utama">
-      <a href="#" class="logo">Edwin <span>Liona Jaya</span></a>
+      <a href="#" class="logo"><i></i>Edwin Liona Jaya</a>
       <button class="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
       <ul class="menu">
         <li><a href="#karya">Karya</a></li>
@@ -167,22 +222,36 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">Web Developer · Bandung</p>
-      <h1>Website yang bikin <em>pelanggan</em> datang dan memesan.</h1>
-      <p>Saya membuat website elegan untuk kafe, restoran, dan bakery: menu online, pemesanan dan reservasi lewat WhatsApp, serta lokasi di Google Maps. Cepat, rapi di HP, dan mudah dikelola.</p>
-      <div class="btns">
-        <a href="#karya" class="btn solid">Lihat Contoh Karya</a>
-        <a href="#kontak" class="btn">Diskusi Proyek</a>
+      <div class="hero-top reveal">
+        <span class="mono status">Terima proyek baru</span>
+        <span class="mono">Web Developer / Bandung, ID / 6.9175° S 107.6191° E</span>
       </div>
-      <div class="tags"><span>Kafe</span><span>Restoran</span><span>Bakery</span><span>Pemesanan via WhatsApp</span><span>Reservasi Online</span><span>Tampil baik di HP</span></div>
+      <h1 class="reveal">Website apa pun yang <span class="ed">Anda</span> <mark>butuhkan.</mark></h1>
+      <div class="hero-bot reveal">
+        <p>Company profile, landing page, toko online, reservasi, menu digital, sampai web app. Satu orang yang merancang, membangun, dan merawatnya, dari ide pertama sampai tayang.</p>
+        <div class="btns">
+          <a href="#karya" class="btn solid">Lihat karya ↓</a>
+          <a href="#kontak" class="btn acid">Ceritakan idemu</a>
+        </div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div>
+        <span>Company Profile</span><span>Landing Page</span><span>Toko Online</span><span>Reservasi &amp; Booking</span><span>Menu Digital</span><span>Portofolio</span><span>Web App</span><span>Dashboard</span><span>Redesign</span>
+        <span>Company Profile</span><span>Landing Page</span><span>Toko Online</span><span>Reservasi &amp; Booking</span><span>Menu Digital</span><span>Portofolio</span><span>Web App</span><span>Dashboard</span><span>Redesign</span>
+      </div>
     </div>
   </section>
 
-  <section id="karya" style="background:var(--bg-alt)">
+  <section id="karya">
     <div class="wrap">
-      <p class="eyebrow reveal">Contoh Karya</p>
-      <h2 class="reveal">Enam konsep, <em>satu standar.</em></h2>
-      <p class="lead reveal">Klik untuk mencoba langsung. Di tiga demo Bandung, silakan tambahkan menu ke pesanan dan lihat bagaimana pesan WhatsApp-nya tersusun.</p>
+      <div class="sec-head">
+        <div class="reveal">
+          <p class="label"><b>01</b> Karya terpilih</p>
+          <h2>Enam konsep. <span class="ed">Satu</span> standar.</h2>
+        </div>
+        <p class="reveal">Etalase saya saat ini berisi bisnis F&amp;B, karena di situlah saya mulai. Klik untuk mencoba langsung. Di demo Bandung, tambahkan menu ke pesanan dan lihat pesan WhatsApp-nya tersusun.</p>
+      </div>
 
       <div class="chips reveal">
         <button class="chip active" data-f="all">Semua</button>
@@ -193,64 +262,84 @@
 
       <div class="grid">
         <a class="card reveal" data-cat="restoran" href="restaurant-bandung.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/restaurant-bandung.jpg" alt="Demo website restoran Sunda Saung Ambu" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Saung Ambu</h3><span>Restoran</span></div>
-          <p>Menu per kategori, pesan via WhatsApp, dan form reservasi meja. Bahasa Indonesia.</p>
+          <div class="shot"><img src="thumbs/restaurant-bandung.jpg" alt="Demo website restoran Sunda Saung Ambu" loading="lazy"><span class="no">01</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Saung Ambu</h3><span>Restoran</span></div>
+          <p>Menu per kategori, pesan via WhatsApp, dan form reservasi meja. Bahasa Indonesia.</p></div>
         </a>
         <a class="card reveal" data-cat="bakery" href="bakery-bandung.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/bakery-bandung.jpg" alt="Demo website bakery Roti Kembang" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Roti Kembang</h3><span>Bakery</span></div>
-          <p>Katalog produk dengan filter, keranjang WhatsApp, dan form pre-order kue. Bahasa Indonesia.</p>
+          <div class="shot"><img src="thumbs/bakery-bandung.jpg" alt="Demo website bakery Roti Kembang" loading="lazy"><span class="no">02</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Roti Kembang</h3><span>Bakery</span></div>
+          <p>Katalog produk dengan filter, keranjang WhatsApp, dan form pre-order kue. Bahasa Indonesia.</p></div>
         </a>
         <a class="card reveal" data-cat="kafe" href="cafe-bandung.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/cafe-bandung.jpg" alt="Demo website kafe Rumah Aroma" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Rumah Aroma</h3><span>Kafe</span></div>
-          <p>Kafe &amp; bakery bergaya hangat dan mewah, pesan via WhatsApp, Maps, dan link GoFood. Bahasa Indonesia.</p>
+          <div class="shot"><img src="thumbs/cafe-bandung.jpg" alt="Demo website kafe Rumah Aroma" loading="lazy"><span class="no">03</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Rumah Aroma</h3><span>Kafe</span></div>
+          <p>Kafe &amp; bakery bergaya hangat dan mewah, pesan via WhatsApp, Maps, dan link GoFood. Bahasa Indonesia.</p></div>
         </a>
         <a class="card reveal" data-cat="kafe" href="cafe.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/cafe.jpg" alt="Demo website kafe Maison Aurelia" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Maison Aurelia</h3><span>Kafe</span></div>
-          <p>Gaya mewah klasik dengan menu bertab. Versi bahasa Inggris untuk pasar internasional.</p>
+          <div class="shot"><img src="thumbs/cafe.jpg" alt="Demo website kafe Maison Aurelia" loading="lazy"><span class="no">04</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Maison Aurelia</h3><span>Kafe</span></div>
+          <p>Gaya mewah klasik dengan menu bertab. Versi bahasa Inggris untuk pasar internasional.</p></div>
         </a>
         <a class="card reveal" data-cat="kafe" href="cafe-japanese.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/cafe-japanese.jpg" alt="Demo website rumah kopi bergaya Jepang Ma Kissa" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Ma Kissa</h3><span>Kafe</span></div>
-          <p>Minimalis ala Jepang: ruang kosong, tipografi tenang, teks vertikal. Bahasa Inggris.</p>
+          <div class="shot"><img src="thumbs/cafe-japanese.jpg" alt="Demo website rumah kopi bergaya Jepang Ma Kissa" loading="lazy"><span class="no">05</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Ma Kissa</h3><span>Kafe</span></div>
+          <p>Minimalis ala Jepang: ruang kosong, tipografi tenang, teks vertikal. Bahasa Inggris.</p></div>
         </a>
         <a class="card reveal" data-cat="kafe" href="cafe-dark.html" target="_blank" rel="noopener">
-          <div class="shot"><img src="thumbs/cafe-dark.jpg" alt="Demo website coffee bar bergaya gelap Noir &amp; Ember" loading="lazy"><span class="open">Buka demo ↗</span></div>
-          <div class="meta"><h3>Noir &amp; Ember</h3><span>Kafe</span></div>
-          <p>Gelap dan intim untuk coffee bar &amp; roastery dengan suasana malam. Bahasa Inggris.</p>
+          <div class="shot"><img src="thumbs/cafe-dark.jpg" alt="Demo website coffee bar bergaya gelap Noir &amp; Ember" loading="lazy"><span class="no">06</span><span class="open">Buka ↗</span></div>
+          <div class="body"><div class="meta"><h3>Noir &amp; Ember</h3><span>Kafe</span></div>
+          <p>Gelap dan intim untuk coffee bar &amp; roastery dengan suasana malam. Bahasa Inggris.</p></div>
+        </a>
+        <a class="card next reveal" href="#kontak">
+          <div>
+            <h3>07. Berikutnya: <span class="ed">milik Anda.</span></h3>
+            <p>Bukan kafe? Tidak masalah. Gaya, fitur, dan bahasa yang sama bisa dibuat untuk bisnis, brand, atau ide apa pun.</p>
+          </div>
+          <span class="go">Mulai proyek →</span>
         </a>
       </div>
-      <p class="note reveal">Semua proyek di atas adalah <b>konsep desain demo</b> (nama, harga, dan alamat fiktif), dibuat untuk menunjukkan gaya dan fitur yang bisa disesuaikan dengan bisnis Anda.</p>
+      <p class="note reveal">// Semua proyek di atas adalah konsep desain demo (nama, harga, dan alamat fiktif), dibuat untuk menunjukkan gaya dan fitur yang bisa disesuaikan dengan kebutuhan Anda.</p>
     </div>
   </section>
 
-  <section id="layanan" class="services">
+  <section id="layanan">
     <div class="wrap">
-      <p class="eyebrow reveal">Layanan</p>
-      <h2 class="reveal">Yang bisa saya <em>kerjakan.</em></h2>
-      <div class="svc-grid">
-        <div class="svc reveal"><span class="n">01</span><h3>Desain Website</h3><p>Tampilan yang sesuai karakter brand Anda, rapi di HP dan komputer.</p></div>
-        <div class="svc reveal"><span class="n">02</span><h3>Menu &amp; Pemesanan</h3><p>Menu online dengan keranjang yang mengirim pesanan langsung ke WhatsApp Anda.</p></div>
-        <div class="svc reveal"><span class="n">03</span><h3>Reservasi &amp; Pre-order</h3><p>Form reservasi meja atau pre-order kue yang masuk sebagai pesan WhatsApp rapi.</p></div>
-        <div class="svc reveal"><span class="n">04</span><h3>Lokasi &amp; Pencarian Lokal</h3><p>Google Maps, jam buka, serta dasar SEO agar mudah ditemukan di pencarian sekitar Bandung.</p></div>
-        <div class="svc reveal"><span class="n">05</span><h3>Integrasi</h3><p>Link GoFood, GrabFood, ShopeeFood, dan Instagram dalam satu halaman.</p></div>
-        <div class="svc reveal"><span class="n">06</span><h3>Pemeliharaan</h3><p>Ganti menu, harga, dan foto kapan pun diperlukan, tanpa ribet.</p></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <p class="label"><b>02</b> Layanan</p>
+          <h2>Butuh <span class="ed">website?</span> Kemungkinan besar bisa.</h2>
+        </div>
+        <p class="reveal">Dari halaman sederhana sampai sistem yang punya fitur. Jenisnya beragam, standarnya sama: cepat, rapi di HP, dan mudah Anda kelola.</p>
       </div>
+      <div class="svc-grid reveal">
+        <div class="svc"><span class="n">/01</span><h3>Company Profile</h3><p>Situs resmi bisnis atau perusahaan yang kredibel dan mudah ditemukan.</p></div>
+        <div class="svc"><span class="n">/02</span><h3>Landing Page</h3><p>Satu halaman tajam untuk promo, produk, event, atau iklan.</p></div>
+        <div class="svc"><span class="n">/03</span><h3>Toko &amp; Katalog</h3><p>Etalase produk dengan keranjang yang mengirim pesanan ke WhatsApp.</p></div>
+        <div class="svc"><span class="n">/04</span><h3>Reservasi &amp; Booking</h3><p>Form jadwal, reservasi, atau pre-order yang masuk sebagai pesan rapi.</p></div>
+        <div class="svc"><span class="n">/05</span><h3>Menu Digital</h3><p>Menu online untuk kafe, restoran, dan bakery, lengkap dengan Maps dan GoFood.</p></div>
+        <div class="svc"><span class="n">/06</span><h3>Portofolio &amp; Personal Brand</h3><p>Panggung online untuk kreator, freelancer, dan profesional.</p></div>
+        <div class="svc"><span class="n">/07</span><h3>Web App &amp; Dashboard</h3><p>Alat bantu khusus: form, kalkulator, katalog, hingga panel data.</p></div>
+        <div class="svc"><span class="n">/08</span><h3>Redesign &amp; Perawatan</h3><p>Website lama dirombak, atau dirawat: ganti konten dan perbaikan kapan pun.</p></div>
+      </div>
+      <p class="more reveal">Tidak ada di daftar? <a href="#kontak">Ceritakan saja.</a></p>
     </div>
   </section>
 
-  <section id="proses" style="background:var(--bg-alt)">
+  <section id="proses">
     <div class="wrap">
-      <p class="eyebrow reveal">Proses</p>
-      <h2 class="reveal">Dari ngobrol sampai <em>tayang.</em></h2>
+      <div class="sec-head">
+        <div class="reveal">
+          <p class="label"><b>03</b> Proses</p>
+          <h2>Dari ngobrol sampai <span class="ed">tayang.</span></h2>
+        </div>
+        <p class="reveal">Empat langkah, tanpa perantara. Anda tahu apa yang terjadi di setiap tahap.</p>
+      </div>
       <div class="steps">
-        <div class="step reveal"><span class="eyebrow">01</span><h3>Diskusi</h3><p>Kita bahas bisnis, target pelanggan, dan fitur yang Anda butuhkan.</p></div>
-        <div class="step reveal"><span class="eyebrow">02</span><h3>Desain</h3><p>Anda menerima rancangan tampilan untuk disetujui sebelum dibangun.</p></div>
-        <div class="step reveal"><span class="eyebrow">03</span><h3>Pembuatan</h3><p>Website dibangun dan diuji di berbagai HP serta browser.</p></div>
-        <div class="step reveal"><span class="eyebrow">04</span><h3>Tayang</h3><p>Website online dengan domain Anda, lengkap dengan panduan penggunaan.</p></div>
+        <div class="step reveal"><span class="big">01</span><h3>Diskusi</h3><p>Kita bahas tujuan, target pengguna, dan fitur yang Anda butuhkan.</p></div>
+        <div class="step reveal"><span class="big">02</span><h3>Desain</h3><p>Anda menerima rancangan tampilan untuk disetujui sebelum dibangun.</p></div>
+        <div class="step reveal"><span class="big">03</span><h3>Pembuatan</h3><p>Website dibangun dan diuji di berbagai HP serta browser.</p></div>
+        <div class="step reveal"><span class="big">04</span><h3>Tayang</h3><p>Online dengan domain Anda, lengkap dengan panduan penggunaan.</p></div>
       </div>
     </div>
   </section>
@@ -259,13 +348,14 @@
     <div class="wrap about-grid">
       <div class="portrait reveal"><img src="edwin-jaya.jpg" alt="Edwin Liona Jaya, web developer di Bandung" loading="lazy"></div>
       <div class="reveal">
-        <p class="eyebrow">Tentang Saya</p>
-        <h2>Halo, saya <em>Edwin Liona Jaya.</em></h2>
-        <p class="lead">Saya web developer di Bandung yang membantu kafe, restoran, dan bakery punya website yang rapi dan mudah dipakai pelanggan. Menurut saya website yang baik itu sederhana: cepat dibuka, enak dilihat, dan memudahkan orang memesan atau datang ke tempat Anda.</p>
-        <p class="lead" style="margin-top:14px">Anda berbicara langsung dengan saya dari diskusi pertama sampai website tayang.</p>
-        <div class="btns" style="margin-top:32px">
-          <a class="btn solid" href="#kontak">Diskusi Proyek</a>
-          <a class="btn" data-portfolio href="#" target="_blank" rel="noopener" hidden>Lihat portofolio lengkap ↗</a>
+        <p class="label"><b>04</b> Tentang</p>
+        <h2>Halo, saya <span class="ed">Edwin.</span></h2>
+        <p class="lead">Saya web developer di Bandung. Apa pun jenis website yang Anda butuhkan, saya bantu mewujudkannya. Menurut saya website yang baik itu sederhana: cepat dibuka, enak dilihat, dan memudahkan orang melakukan hal yang mereka cari.</p>
+        <p class="lead">Anda berbicara langsung dengan saya dari diskusi pertama sampai website tayang.</p>
+        <div class="facts"><span>Bandung</span><span>Bahasa Indonesia / English</span><span>Satu orang, satu tanggung jawab</span></div>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn solid" href="#kontak">Diskusi proyek</a>
+          <a class="btn" data-portfolio href="#" target="_blank" rel="noopener" hidden>Portofolio lengkap ↗</a>
         </div>
       </div>
     </div>
@@ -273,18 +363,20 @@
 
   <section id="kontak" class="contact">
     <div class="wrap reveal">
-      <p class="eyebrow">Kontak</p>
-      <h2>Punya kafe, restoran, atau <em>bakery?</em></h2>
-      <p class="lead">Ceritakan bisnis Anda. Saya akan kirim ide dan penawaran sesuai kebutuhan, tanpa kewajiban.</p>
-      <div class="btns">
-        <a class="btn wa" href="#" data-wa="Halo Edwin, saya tertarik membuat website untuk bisnis saya." target="_blank" rel="noopener">Chat via WhatsApp</a>
-        <a class="btn" href="mailto:edwinlionaj@gmail.com">edwinlionaj@gmail.com</a>
+      <p class="label"><b>05</b> Kontak</p>
+      <h2>Punya <span class="ed">ide?</span> Ayo kita bikin.</h2>
+      <div class="row">
+        <p>Ceritakan apa yang Anda butuhkan. Saya akan kirim ide dan penawaran yang sesuai, tanpa kewajiban.</p>
+        <div class="btns">
+          <a class="btn wa" href="#" data-wa="Halo Edwin, saya tertarik membuat website untuk bisnis saya." target="_blank" rel="noopener">Chat WhatsApp ↗</a>
+          <a class="btn" href="mailto:edwinlionaj@gmail.com">edwinlionaj@gmail.com</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>© <span id="yr"></span> Edwin Liona Jaya · Bandung, Indonesia <a data-portfolio href="#" target="_blank" rel="noopener" hidden style="margin-left:14px;border-bottom:1px solid #5b564d">Portofolio lengkap ↗</a></footer>
+<footer><span>© <span id="yr"></span> Edwin Liona Jaya / Bandung, Indonesia</span> <a data-portfolio href="#" target="_blank" rel="noopener" hidden>Portofolio lengkap ↗</a></footer>
 
 <a class="fab" href="#" data-wa="Halo Edwin, saya tertarik membuat website untuk bisnis saya." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.47 15l-1.5 5.5 5.63-1.48A9.92 9.92 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.05-1.17.07-1.88-.12a17 17 0 0 1-1.7-.63c-3-1.3-4.95-4.3-5.1-4.5-.15-.2-1.2-1.6-1.2-3.05 0-1.45.75-2.15 1.03-2.45.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.52.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.5-.15.15-.3.3-.13.6.18.3.78 1.28 1.67 2.07 1.15 1 2.1 1.33 2.4 1.48.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></svg>
@@ -296,20 +388,17 @@
   if (PORTFOLIO) document.querySelectorAll('[data-portfolio]').forEach(a => { a.href = PORTFOLIO; a.hidden = false; });
   document.querySelectorAll('[data-wa]').forEach(a => a.href = `https://wa.me/${WA}?text=${encodeURIComponent(a.dataset.wa)}`);
   const header = document.getElementById('top'), burger = document.querySelector('.burger'), menu = document.querySelector('.menu');
-  const onScroll = () => header.classList.toggle('scrolled', scrollY > 40);
-  onScroll(); addEventListener('scroll', onScroll, { passive: true });
   burger.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
-    if (open) header.classList.add('scrolled'); else onScroll();
   });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false); onScroll();
+    menu.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false);
   }));
   document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
     document.querySelectorAll('.chip').forEach(x => x.classList.remove('active')); c.classList.add('active');
-    document.querySelectorAll('.card').forEach(card => card.classList.toggle('hide', c.dataset.f !== 'all' && card.dataset.cat !== c.dataset.f));
+    document.querySelectorAll('.card[data-cat]').forEach(card => card.classList.toggle('hide', c.dataset.f !== 'all' && card.dataset.cat !== c.dataset.f));
   }));
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
