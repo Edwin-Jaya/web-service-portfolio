@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma Kissa — 間 Coffee &amp; Tea House</title>
+<meta name="description" content="Ma Kissa: a quiet Japanese coffee and tea house. Hand-drip coffee, ceremonial matcha and seasonal wagashi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2714%27 fill=%27%23a68648%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1ea;
+    --paper-alt: #ebe6db;
+    --sumi: #22201d;
+    --muted: #85807a;
+    --line: #d4cec2;
+    --red: #b3382c;
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans: "Zen Kaku Gothic New", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--sumi); font-family: var(--sans); font-weight: 300; line-height: 2; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 150px 0; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+  .label { font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 16px; }
+  .label::before { content: ""; width: 32px; height: 1px; background: var(--red); }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: .08em; line-height: 1.6; margin: 28px 0; }
+  .lead { color: var(--muted); max-width: 440px; font-size: .95rem; }
+  .vert { writing-mode: vertical-rl; font-family: var(--serif); letter-spacing: .5em; }
+  .hanko { display: inline-grid; place-items: center; width: 44px; height: 44px; background: var(--red); color: #f4f1ea; font-family: var(--serif); font-size: 1.3rem; border-radius: 3px; }
+
+  /* Header */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: .4s; }
+  header.scrolled { background: rgba(244,241,234,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; height: 84px; }
+  .logo { display: flex; align-items: center; gap: 14px; font-family: var(--serif); letter-spacing: .3em; font-size: .95rem; }
+  .logo .hanko { width: 30px; height: 30px; font-size: .95rem; }
+  .menu { display: flex; gap: 44px; list-style: none; }
+  .menu a { font-size: 12px; letter-spacing: .28em; position: relative; padding: 4px 0; }
+  .menu a::after { content: ""; position: absolute; left: 50%; bottom: -4px; width: 4px; height: 4px; border-radius: 50%; background: var(--red); transform: translateX(-50%) scale(0); transition: .3s; }
+  .menu a:hover::after { transform: translateX(-50%) scale(1); }
+  .burger { display: none; background: none; border: 0; width: 32px; height: 32px; cursor: pointer; position: relative; }
+  .burger span { position: absolute; left: 4px; right: 4px; height: 1px; background: var(--sumi); transition: .3s; }
+  .burger span:nth-child(1) { top: 12px; } .burger span:nth-child(2) { top: 20px; right: 12px; }
+  .burger.open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+  .burger.open span:nth-child(2) { top: 16px; right: 4px; transform: rotate(-45deg); }
+
+  /* Hero */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 0; }
+  .hero-text { padding: 140px 64px 80px max(32px, calc((100vw - 1100px) / 2 + 32px)); position: relative; }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); letter-spacing: .12em; line-height: 1.5; margin: 32px 0 28px; }
+  .hero p { color: var(--muted); max-width: 360px; font-size: .95rem; margin-bottom: 52px; }
+  .link { font-size: 12px; letter-spacing: .3em; display: inline-flex; align-items: center; gap: 18px; }
+  .link::after { content: ""; width: 56px; height: 1px; background: var(--sumi); transition: width .4s; }
+  .link:hover::after { width: 88px; }
+  .hero-img { height: 100vh; background: var(--paper-alt) url("https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1400&q=70") center/cover; position: relative; }
+  .hero-img .vert { position: absolute; top: 120px; right: 40px; color: #f4f1ea; font-size: 1.1rem; text-shadow: 0 0 20px rgba(0,0,0,.4); }
+  .kanji { position: absolute; bottom: 40px; right: 56px; font-family: var(--serif); font-size: 6rem; color: rgba(244,241,234,.9); line-height: 1; }
+
+  /* Philosophy */
+  .phil { display: grid; grid-template-columns: 120px 1fr 1fr; gap: 48px; align-items: start; }
+  .phil .vert { font-size: 1.3rem; color: var(--red); height: 260px; }
+  .phil p + p { margin-top: 20px; }
+  .phil p { color: var(--muted); font-size: .95rem; }
+
+  /* Menu */
+  .menu-sec { background: var(--paper-alt); }
+  .menu-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 72px; margin-top: 80px; }
+  .col h3 { font-size: 1.15rem; letter-spacing: .3em; padding-bottom: 20px; border-bottom: 1px solid var(--sumi); display: flex; justify-content: space-between; align-items: baseline; }
+  .col h3 small { font-family: var(--sans); font-size: 11px; color: var(--muted); letter-spacing: .2em; }
+  .row { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; }
+  .row b { font-family: var(--serif); font-weight: 400; font-size: 1.05rem; letter-spacing: .06em; display: block; }
+  .row span { font-size: .8rem; color: var(--muted); line-height: 1.6; display: block; }
+  .row i { font-style: normal; font-family: var(--serif); white-space: nowrap; }
+
+  /* Gallery */
+  .gal { display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 28px; margin-top: 80px; align-items: end; }
+  .gal div { background-size: cover; background-position: center; background-color: var(--paper-alt); }
+  .gal div:nth-child(1) { aspect-ratio: 3/4; }
+  .gal div:nth-child(2) { aspect-ratio: 1; margin-bottom: 80px; }
+  .gal div:nth-child(3) { aspect-ratio: 4/5; }
+  .gal-cap { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .3em; color: var(--muted); margin-top: 28px; }
+
+  /* Quote */
+  .quote { text-align: center; background: var(--sumi); color: var(--paper); padding: 140px 0; }
+  .quote p { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.1rem); letter-spacing: .15em; line-height: 2.2; }
+  .quote small { display: block; margin-top: 36px; font-size: 11px; letter-spacing: .4em; color: #a29c93; }
+
+  /* Visit */
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+  .hours { list-style: none; margin-top: 40px; }
+  .hours li { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+  .hours li span:last-child { font-family: var(--serif); letter-spacing: .1em; }
+  .info dt { font-size: 11px; letter-spacing: .35em; color: var(--red); margin-top: 28px; }
+  .info dt:first-child { margin-top: 0; }
+  .info dd { font-size: .95rem; }
+  .btn { display: inline-block; margin-top: 44px; font-size: 12px; letter-spacing: .3em; padding: 18px 44px; border: 1px solid var(--sumi); transition: .4s; }
+  .btn:hover { background: var(--sumi); color: var(--paper); }
+
+  footer { border-top: 1px solid var(--line); padding: 48px 0; font-size: 11px; letter-spacing: .25em; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease, transform 1.2s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 900px) {
+    section { padding: 90px 0; }
+    .burger { display: block; }
+    .menu { position: fixed; inset: 84px 0 auto 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 32px 24px; transform: translateY(-120%); transition: transform .5s; z-index: -1; }
+    .menu.open { transform: none; }
+    .menu li { border-bottom: 1px solid var(--line); }
+    .menu a { display: block; padding: 18px 0; }
+    .menu a::after { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 130px 32px 60px; }
+    .hero-img { height: 60vh; }
+    .phil { grid-template-columns: 1fr; gap: 24px; }
+    .phil .vert { height: auto; writing-mode: horizontal-tb; letter-spacing: .4em; }
+    .menu-cols, .visit-grid { grid-template-columns: 1fr; gap: 56px; }
+    .gal { grid-template-columns: 1fr 1fr; }
+    .gal div:nth-child(2) { margin-bottom: 0; }
+    .gal div:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16/10; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#" class="logo"><span class="hanko">間</span>MA KISSA</a>
+      <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="menu">
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Space</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="label">Coffee &amp; Tea House · Kyoto</p>
+      <h1>Pause.<br>Breathe.<br>Sip.</h1>
+      <p>A quiet room for hand-dripped coffee, ceremonial matcha and seasonal sweets. Take your time.</p>
+      <a href="#menu" class="link">VIEW MENU</a>
+    </div>
+    <div class="hero-img" role="img" aria-label="Coffee being poured">
+      <span class="vert">静かな時間</span>
+      <span class="kanji">間</span>
+    </div>
+  </section>
+
+  <section id="philosophy">
+    <div class="wrap phil">
+      <span class="vert reveal">余白の美</span>
+      <div class="reveal">
+        <p class="label">Philosophy</p>
+        <h2>What is left<br>unsaid, <br>matters most.</h2>
+      </div>
+      <div class="reveal" style="padding-top:64px">
+        <p><b style="font-family:var(--serif);font-weight:500">間 (Ma)</b> is the space between things: the pause in music, the silence in conversation, the stillness before the first sip.</p>
+        <p>We keep our menu small, our room spare and our service unhurried, so that each cup can be fully noticed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-sec">
+    <div class="wrap">
+      <p class="label reveal">Menu</p>
+      <h2 class="reveal">Few things,<br>done with care.</h2>
+      <div class="menu-cols">
+        <div class="col reveal">
+          <h3>珈琲 <small>COFFEE</small></h3>
+          <div class="row"><div><b>Hand Drip</b><span>Single origin, brewed to order</span></div><i>¥650</i></div>
+          <div class="row"><div><b>Kyoto Blend</b><span>Dark roast, cocoa, roasted nuts</span></div><i>¥550</i></div>
+          <div class="row"><div><b>Cold Brew</b><span>Steeped for sixteen hours</span></div><i>¥600</i></div>
+          <div class="row"><div><b>Milk Coffee</b><span>Hand-drip with warm milk</span></div><i>¥700</i></div>
+        </div>
+        <div class="col reveal">
+          <h3>お茶 <small>TEA</small></h3>
+          <div class="row"><div><b>Usucha Matcha</b><span>Whisked thin tea, Uji</span></div><i>¥750</i></div>
+          <div class="row"><div><b>Hojicha</b><span>Roasted green tea, warm and nutty</span></div><i>¥550</i></div>
+          <div class="row"><div><b>Genmaicha</b><span>Green tea with toasted rice</span></div><i>¥550</i></div>
+          <div class="row"><div><b>Sencha</b><span>Fresh, grassy, bright</span></div><i>¥600</i></div>
+        </div>
+        <div class="col reveal">
+          <h3>和菓子 <small>SWEETS</small></h3>
+          <div class="row"><div><b>Seasonal Wagashi</b><span>Chosen daily by our confectioner</span></div><i>¥500</i></div>
+          <div class="row"><div><b>Matcha Warabimochi</b><span>Kinako, kuromitsu</span></div><i>¥700</i></div>
+          <div class="row"><div><b>Anko Toast</b><span>Red bean, cultured butter</span></div><i>¥650</i></div>
+          <div class="row"><div><b>Sesame Pudding</b><span>Black sesame, soft cream</span></div><i>¥600</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <p class="label reveal">The Space</p>
+      <h2 class="reveal">Wood, paper,<br>and light.</h2>
+      <div class="gal reveal">
+        <div style="background-image:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=600&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=70')"></div>
+      </div>
+      <div class="gal-cap"><span>ONE COUNTER · EIGHT SEATS</span><span>NO WIFI · NO RUSH</span></div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap reveal">
+      <p>一期一会<br>Every cup, a single encounter.</p>
+      <small>ICHI-GO ICHI-E</small>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit-grid">
+      <div class="reveal">
+        <p class="label">Visit</p>
+        <h2>Come as<br>you are.</h2>
+        <ul class="hours">
+          <li><span>Wednesday — Monday</span><span>8:00 — 18:00</span></li>
+          <li><span>Tuesday</span><span>Closed</span></li>
+        </ul>
+        <a href="mailto:hello@makissa.example" class="btn">RESERVE A SEAT</a>
+      </div>
+      <dl class="info reveal">
+        <dt>ADDRESS</dt><dd>3-12 Shirakawa-dori, Higashiyama<br>Kyoto 605-0000, Japan</dd>
+        <dt>CONTACT</dt><dd>hello@makissa.example<br>+81 75 000 0000</dd>
+        <dt>ACCESS</dt><dd>5 minutes on foot from Gion-Shijo Station</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> MA KISSA · DEMO WEBSITE CONCEPT</span>
+    <span>INSTAGRAM · NOTE</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('top'), burger = document.querySelector('.burger'), menu = document.querySelector('.menu');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    if (open) header.classList.add('scrolled'); else onScroll();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false); onScroll();
+  }));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

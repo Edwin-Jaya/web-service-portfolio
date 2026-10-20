@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noir &amp; Ember — Coffee Bar &amp; Roastery</title>
+<meta name="description" content="Noir & Ember: a dark, intimate coffee bar and roastery. Small-batch roasts, craft espresso and evening cocktails.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2714%27 fill=%27%23a68648%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0c0b;
+    --bg-2: #161312;
+    --bg-3: #1e1a18;
+    --ink: #ece4d8;
+    --muted: #8f857a;
+    --line: #2b2623;
+    --ember: #c8884a;
+    --ember-2: #e0a566;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  section { padding: 130px 0; position: relative; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+  h2 { font-size: clamp(2.1rem, 4.5vw, 3.4rem); margin: 16px 0 20px; }
+  em { font-style: italic; color: var(--ember); }
+  .eyebrow { font-size: 11px; letter-spacing: .35em; text-transform: uppercase; color: var(--ember); font-weight: 500; }
+  .lead { color: var(--muted); max-width: 480px; }
+
+  /* Header */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: .4s; border-bottom: 1px solid transparent; }
+  header.scrolled { background: rgba(14,12,11,.88); backdrop-filter: blur(14px); border-color: var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; height: 82px; }
+  .logo { font-family: var(--serif); font-size: 1.45rem; letter-spacing: .04em; }
+  .logo i { color: var(--ember); font-style: italic; }
+  .menu { display: flex; gap: 38px; list-style: none; align-items: center; }
+  .menu a { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; font-weight: 400; color: var(--muted); transition: color .3s; }
+  .menu a:hover { color: var(--ink); }
+  .menu .cta { color: var(--ink); border: 1px solid var(--ember); padding: 10px 24px; transition: .3s; }
+  .menu .cta:hover { background: var(--ember); color: var(--bg); }
+  .burger { display: none; background: none; border: 0; width: 32px; height: 32px; cursor: pointer; position: relative; }
+  .burger span { position: absolute; left: 4px; right: 4px; height: 1px; background: var(--ink); transition: .3s; }
+  .burger span:nth-child(1) { top: 11px; } .burger span:nth-child(2) { top: 19px; }
+  .burger.open span:nth-child(1) { top: 15px; transform: rotate(45deg); }
+  .burger.open span:nth-child(2) { top: 15px; transform: rotate(-45deg); }
+
+  /* Hero */
+  .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 0 0 100px;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(200,136,74,.22), transparent 55%),
+      linear-gradient(180deg, rgba(14,12,11,.35) 0%, rgba(14,12,11,.7) 60%, var(--bg) 100%),
+      url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1800&q=70") center/cover, var(--bg); }
+  .hero h1 { font-size: clamp(3.4rem, 10vw, 8.5rem); letter-spacing: -.02em; margin: 24px 0 28px; max-width: 1000px; }
+  .hero p { color: #b9aea0; max-width: 440px; margin-bottom: 44px; }
+  .btns { display: flex; gap: 18px; flex-wrap: wrap; }
+  .btn { display: inline-block; font-size: 11px; letter-spacing: .25em; text-transform: uppercase; font-weight: 500; padding: 18px 38px; border: 1px solid var(--ember); transition: .35s; }
+  .btn.solid { background: var(--ember); color: var(--bg); }
+  .btn.solid:hover { background: var(--ember-2); border-color: var(--ember-2); }
+  .btn.ghost:hover { background: rgba(200,136,74,.12); }
+  .badge { position: absolute; right: 28px; bottom: 100px; width: 120px; height: 120px; border: 1px solid var(--ember); border-radius: 50%; display: grid; place-items: center; text-align: center; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--ember); line-height: 1.7; }
+
+  /* Marquee */
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; padding: 22px 0; background: var(--bg-2); }
+  .track { display: flex; gap: 56px; width: max-content; animation: slide 36s linear infinite; font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--muted); }
+  .track span::after { content: "✦"; color: var(--ember); margin-left: 56px; font-style: normal; font-size: .8rem; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+  .about-img { aspect-ratio: 4/5; background: var(--bg-3) url("https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=900&q=70") center/cover; filter: saturate(.8) contrast(1.05); position: relative; }
+  .about-img::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 120px rgba(14,12,11,.6); }
+  .about p + p { margin-top: 18px; }
+  .stats { display: flex; gap: 52px; margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .stats b { display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 400; color: var(--ember); line-height: 1; }
+  .stats span { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); }
+
+  /* Menu */
+  .menu-sec { background: var(--bg-2); }
+  .tabs { display: flex; gap: 12px; margin: 48px 0 56px; flex-wrap: wrap; }
+  .tab { background: none; border: 1px solid var(--line); color: var(--muted); font: inherit; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; padding: 12px 28px; border-radius: 99px; cursor: pointer; transition: .3s; }
+  .tab:hover { color: var(--ink); border-color: var(--muted); }
+  .tab.active { background: var(--ember); border-color: var(--ember); color: var(--bg); font-weight: 500; }
+  .panel { display: none; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .panel.active { display: grid; animation: fade .6s; }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .item { background: var(--bg-3); padding: 30px 32px; border: 1px solid transparent; transition: .3s; display: flex; justify-content: space-between; gap: 24px; }
+  .item:hover { border-color: var(--ember); transform: translateY(-3px); }
+  .item h3 { font-size: 1.4rem; margin-bottom: 4px; }
+  .item p { font-size: .88rem; color: var(--muted); }
+  .item .price { font-family: var(--serif); color: var(--ember-2); font-size: 1.3rem; white-space: nowrap; }
+
+  /* Roast */
+  .roast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 60px; }
+  .roast { background: var(--bg); padding: 48px 36px; transition: background .4s; }
+  .roast:hover { background: var(--bg-3); }
+  .roast .n { font-family: var(--serif); font-style: italic; color: var(--ember); }
+  .roast h3 { font-size: 1.8rem; margin: 16px 0 8px; }
+  .roast p { color: var(--muted); font-size: .9rem; }
+  .meter { display: flex; gap: 5px; margin-top: 26px; }
+  .meter i { width: 100%; height: 3px; background: var(--line); }
+  .meter i.on { background: var(--ember); }
+
+  /* Evening */
+  .evening { background: linear-gradient(rgba(14,12,11,.82), rgba(14,12,11,.92)), url("https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=70") center/cover fixed; text-align: center; }
+  .evening h2 { max-width: 700px; margin-inline: auto; }
+  .evening .lead { margin: 0 auto 40px; }
+
+  /* Visit */
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+  .hours { list-style: none; margin-top: 32px; }
+  .hours li { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .hours li span:last-child { color: var(--ember-2); }
+  .info b { display: block; font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--ember); font-weight: 500; }
+  .info p { margin-bottom: 26px; }
+  .map { height: 220px; border: 1px solid var(--line); background: var(--bg-2); display: grid; place-items: center; color: var(--muted); font-family: var(--serif); font-style: italic; margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 44px 0; font-size: 11px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s, transform 1s; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .track { animation: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 900px) {
+    section { padding: 84px 0; }
+    .burger { display: block; }
+    .menu { position: fixed; inset: 82px 0 auto 0; flex-direction: column; gap: 0; background: var(--bg-2); border-bottom: 1px solid var(--line); padding: 8px 28px 28px; transform: translateY(-120%); transition: transform .45s; z-index: -1; align-items: stretch; }
+    .menu.open { transform: none; }
+    .menu li { border-bottom: 1px solid var(--line); }
+    .menu a { display: block; padding: 18px 0; }
+    .menu .cta { border: 0; padding: 18px 0; }
+    .about-grid, .visit-grid, .panel.active, .roast-grid { grid-template-columns: 1fr; }
+    .about-grid, .visit-grid { gap: 48px; }
+    .badge { display: none; }
+    .evening { background-attachment: scroll; }
+    .stats { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#" class="logo">Noir <i>&amp;</i> Ember</a>
+      <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#roasts">Roasts</a></li>
+        <li><a href="#evening">Evenings</a></li>
+        <li><a href="#visit" class="cta">Visit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Coffee Bar &amp; Roastery</p>
+      <h1>Brewed in the <em>dark,</em> best served slow.</h1>
+      <p>Small-batch roasts, precise espresso and an after-hours bar, set in a candle-lit room made for lingering.</p>
+      <div class="btns">
+        <a href="#menu" class="btn solid">Explore Menu</a>
+        <a href="#visit" class="btn ghost">Find Us</a>
+      </div>
+    </div>
+    <div class="badge">Roasted<br>in-house<br>daily</div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Single Origin</span><span>Small Batch</span><span>Craft Espresso</span><span>Evening Bar</span><span>Roasted Daily</span><span>Single Origin</span><span>Small Batch</span><span>Craft Espresso</span><span>Evening Bar</span><span>Roasted Daily</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-img reveal" role="img" aria-label="Barista at work"></div>
+      <div class="about reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2>Where the night <em>begins</em> with coffee.</h2>
+        <p class="lead">Noir &amp; Ember started as a one-machine roastery in a basement. Today it's a dark, intimate room where we roast, pull and pour with the same obsession.</p>
+        <p class="lead">By day, precise espresso. By night, low light, slow music and coffee-forward cocktails.</p>
+        <div class="stats">
+          <div><b>12</b><span>Origins</span></div>
+          <div><b>48h</b><span>Rest time</span></div>
+          <div><b>24:00</b><span>Last call</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-sec">
+    <div class="wrap">
+      <p class="eyebrow reveal">The Menu</p>
+      <h2 class="reveal">Bold, <em>balanced,</em> unhurried.</h2>
+      <div class="tabs reveal" role="tablist">
+        <button class="tab active" data-tab="espresso" role="tab">Espresso</button>
+        <button class="tab" data-tab="filter" role="tab">Filter &amp; Cold</button>
+        <button class="tab" data-tab="bites" role="tab">Bites</button>
+      </div>
+
+      <div class="panel active" id="espresso">
+        <div class="item"><div><h3>Ember Espresso</h3><p>House roast, molasses and dark cherry.</p></div><span class="price">3.8</span></div>
+        <div class="item"><div><h3>Cortado</h3><p>Equal parts espresso and warm milk.</p></div><span class="price">4.4</span></div>
+        <div class="item"><div><h3>Black Flat White</h3><p>Double ristretto, velvet milk.</p></div><span class="price">5.0</span></div>
+        <div class="item"><div><h3>Smoked Maple Latte</h3><p>Maple, cinnamon, oak smoke.</p></div><span class="price">6.0</span></div>
+        <div class="item"><div><h3>Mocha Noir</h3><p>70% cacao, espresso, steamed milk.</p></div><span class="price">5.8</span></div>
+        <div class="item"><div><h3>Affogato</h3><p>Vanilla gelato drowned in espresso.</p></div><span class="price">6.5</span></div>
+      </div>
+
+      <div class="panel" id="filter">
+        <div class="item"><div><h3>V60 Pour Over</h3><p>Rotating single origin, brewed to order.</p></div><span class="price">6.0</span></div>
+        <div class="item"><div><h3>Cold Brew</h3><p>Steeped 18 hours, served over one large cube.</p></div><span class="price">5.2</span></div>
+        <div class="item"><div><h3>Nitro Cold Brew</h3><p>Silky, cascading, on tap.</p></div><span class="price">5.8</span></div>
+        <div class="item"><div><h3>Espresso Tonic</h3><p>Citrus peel, rosemary, double shot.</p></div><span class="price">6.0</span></div>
+      </div>
+
+      <div class="panel" id="bites">
+        <div class="item"><div><h3>Burnt Basque Cheesecake</h3><p>Caramelised top, molten centre.</p></div><span class="price">7.5</span></div>
+        <div class="item"><div><h3>Dark Chocolate Tart</h3><p>Sea salt, olive oil, crème fraîche.</p></div><span class="price">7.0</span></div>
+        <div class="item"><div><h3>Butter Croissant</h3><p>Baked each morning.</p></div><span class="price">3.8</span></div>
+        <div class="item"><div><h3>Charcuterie Toastie</h3><p>Gruyère, prosciutto, fig jam.</p></div><span class="price">11.0</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roasts">
+    <div class="wrap">
+      <p class="eyebrow reveal">Roastery</p>
+      <h2 class="reveal">Three roasts, <em>one</em> obsession.</h2>
+      <div class="roast-grid reveal">
+        <article class="roast"><span class="n">01 — Light</span><h3>Dawn</h3><p>Ethiopia Yirgacheffe. Jasmine, bergamot, honey.</p><div class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="roast"><span class="n">02 — Medium</span><h3>Ember</h3><p>Colombia Huila. Caramel, red apple, cocoa.</p><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></article>
+        <article class="roast"><span class="n">03 — Dark</span><h3>Noir</h3><p>Sumatra Mandheling. Cedar, molasses, dark chocolate.</p><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="evening" class="evening">
+    <div class="wrap reveal">
+      <p class="eyebrow">After Dark</p>
+      <h2>When the lights go <em>low.</em></h2>
+      <p class="lead">From 6 pm, the bar opens: espresso martinis, coffee old fashioneds and natural wines by candlelight.</p>
+      <a href="#visit" class="btn solid">Reserve a Table</a>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit-grid">
+      <div class="reveal">
+        <p class="eyebrow">Visit</p>
+        <h2>Find us in the <em>quiet.</em></h2>
+        <ul class="hours">
+          <li><span>Mon — Thu</span><span>7:30 — 22:00</span></li>
+          <li><span>Fri — Sat</span><span>7:30 — 24:00</span></li>
+          <li><span>Sunday</span><span>9:00 — 20:00</span></li>
+        </ul>
+      </div>
+      <div class="info reveal">
+        <p><b>Address</b>48 Foundry Lane, Arts District</p>
+        <p><b>Reservations</b>hello@noirember.example<br>+00 123 456 789</p>
+        <div class="map">Map placeholder</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Noir &amp; Ember · Demo website concept</span>
+    <span>Instagram · TikTok · Spotify</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('top'), burger = document.querySelector('.burger'), menu = document.querySelector('.menu');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    if (open) header.classList.add('scrolled'); else onScroll();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false); onScroll();
+  }));
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.tab, .panel').forEach(e => e.classList.remove('active'));
+    t.classList.add('active'); document.getElementById(t.dataset.tab).classList.add('active');
+  }));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

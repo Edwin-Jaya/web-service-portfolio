@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saung Ambu — Restoran Sunda Modern Bandung</title>
+<meta name="description" content="Saung Ambu: restoran masakan Sunda modern di Lembang, Bandung. Reservasi meja dan pesan menu lewat WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2714%27 fill=%27%23a68648%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1b2a22;
+    --green-2: #223429;
+    --green-3: #2b4033;
+    --cream: #f3ecdf;
+    --cream-2: #e9dfcc;
+    --brass: #c9a063;
+    --brass-2: #dcb87c;
+    --ink: #1b1a17;
+    --muted: #9aa597;
+    --wa: #1faa59;
+    --serif: "Lora", Georgia, serif;
+    --sans: "Jost", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--green); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 120px 0; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.2; }
+  h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); margin: 14px 0 18px; }
+  em { font-style: italic; color: var(--brass); }
+  .eyebrow { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--brass); font-weight: 400; display: flex; align-items: center; gap: 14px; }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--brass); }
+  .center .eyebrow { justify-content: center; }
+  .lead { color: #b8c0b3; max-width: 500px; }
+
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: .35s; border-bottom: 1px solid transparent; }
+  header.scrolled { background: rgba(27,42,34,.94); backdrop-filter: blur(12px); border-color: rgba(201,160,99,.2); }
+  nav { display: flex; justify-content: space-between; align-items: center; height: 82px; }
+  .logo { font-family: var(--serif); font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
+  .logo svg { width: 26px; height: 26px; stroke: var(--brass); fill: none; stroke-width: 1.3; }
+  .menu { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .menu a { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: #cdd3c8; transition: color .25s; }
+  .menu a:hover { color: var(--brass-2); }
+  .menu .cta { color: var(--green); background: var(--brass); padding: 11px 24px; transition: .3s; }
+  .menu .cta:hover { background: var(--brass-2); color: var(--green); }
+  .burger { display: none; background: none; border: 0; width: 34px; height: 34px; cursor: pointer; position: relative; }
+  .burger span { position: absolute; left: 5px; right: 5px; height: 1px; background: var(--cream); transition: .3s; }
+  .burger span:nth-child(1) { top: 12px; } .burger span:nth-child(2) { top: 20px; }
+  .burger.open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+  .burger.open span:nth-child(2) { top: 16px; transform: rotate(-45deg); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; padding: 17px 36px; border: 1px solid var(--brass); background: none; color: var(--cream); cursor: pointer; transition: .3s; }
+  .btn:hover { background: rgba(201,160,99,.14); }
+  .btn.solid { background: var(--brass); color: var(--green); font-weight: 500; }
+  .btn.solid:hover { background: var(--brass-2); }
+  .btn.wa { background: var(--wa); border-color: var(--wa); color: #fff; font-weight: 500; }
+  .btn.wa:hover { filter: brightness(1.08); }
+
+  /* Hero */
+  .hero { min-height: 100vh; display: flex; align-items: center; position: relative;
+    background: linear-gradient(90deg, rgba(27,42,34,.96) 0%, rgba(27,42,34,.75) 45%, rgba(27,42,34,.35) 100%),
+      url("https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=1800&q=70") center/cover, var(--green); }
+  .hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); line-height: 1.05; margin: 24px 0 26px; max-width: 800px; }
+  .hero p { max-width: 460px; color: #cdd3c8; margin-bottom: 42px; }
+  .btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .info-strip { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid rgba(201,160,99,.25); background: rgba(27,42,34,.7); backdrop-filter: blur(8px); }
+  .info-strip .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .info-strip div { padding: 20px 0; font-size: 13px; color: #cdd3c8; }
+  .info-strip b { display: block; font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--brass); font-weight: 400; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+  .img-stack { position: relative; padding-bottom: 60px; }
+  .img-stack .a { aspect-ratio: 4/5; width: 82%; background: var(--green-3) url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70") center/cover; }
+  .img-stack .b { position: absolute; right: 0; bottom: 0; width: 48%; aspect-ratio: 1; background: var(--green-3) url("https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=600&q=70") center/cover; border: 8px solid var(--green); }
+  .about p + p { margin-top: 16px; }
+  .pillars { display: flex; gap: 40px; margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(201,160,99,.25); }
+  .pillars b { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--brass-2); }
+  .pillars span { font-size: 13px; color: #a7b0a3; line-height: 1.5; display: block; }
+
+  /* Menu */
+  .menu-sec { background: var(--cream); color: var(--ink); }
+  .menu-sec .eyebrow, .menu-sec em { color: #8a6a35; }
+  .menu-sec .eyebrow::before { background: #8a6a35; }
+  .menu-sec .lead { color: #6b665a; }
+  .cats { display: flex; gap: 32px; margin: 44px 0 12px; border-bottom: 1px solid #d3c7ae; overflow-x: auto; }
+  .cat { background: none; border: 0; font: inherit; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #8a8372; padding: 0 0 16px; cursor: pointer; border-bottom: 1px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: .25s; }
+  .cat:hover, .cat.active { color: var(--ink); border-color: #8a6a35; }
+  .panel { display: none; grid-template-columns: 1fr 1fr; column-gap: 72px; }
+  .panel.active { display: grid; animation: fade .5s; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .item { display: flex; align-items: center; gap: 18px; padding: 24px 0; border-bottom: 1px solid #ddd2bb; }
+  .item .txt { flex: 1; }
+  .item h3 { font-size: 1.2rem; display: flex; align-items: baseline; gap: 10px; }
+  .item h3 small { font-family: var(--sans); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #fff; background: #8a6a35; padding: 1px 8px; font-weight: 400; }
+  .item p { font-size: 14px; color: #6b665a; line-height: 1.6; }
+  .price { font-family: var(--serif); color: #8a6a35; white-space: nowrap; }
+  .qty { display: flex; align-items: center; border: 1px solid #b8a883; }
+  .qty button { background: none; border: 0; width: 32px; height: 32px; font-size: 1.1rem; cursor: pointer; color: var(--ink); transition: .2s; }
+  .qty button:hover { background: #8a6a35; color: #fff; }
+  .qty output { min-width: 22px; text-align: center; font-size: 14px; }
+  .note { margin-top: 32px; font-size: 14px; color: #6b665a; }
+
+  /* Gallery */
+  .gal { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 14px; margin-top: 56px; }
+  .gal div { background-size: cover; background-position: center; background-color: var(--green-3); transition: transform .6s; }
+  .gal div:hover { transform: scale(1.02); }
+  .gal div:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gal div:nth-child(4) { grid-column: span 2; }
+
+  /* Reservation */
+  .res { background: var(--green-2); }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .hours { list-style: none; margin: 28px 0; }
+  .hours li { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(201,160,99,.2); }
+  .hours li span:last-child { color: var(--brass-2); }
+  .addr p { margin-bottom: 8px; }
+  .addr b { color: var(--brass); font-weight: 400; letter-spacing: .2em; text-transform: uppercase; font-size: 11px; display: block; margin-top: 16px; }
+  form { background: var(--green); border: 1px solid rgba(201,160,99,.3); padding: 40px; display: grid; gap: 18px; }
+  form h3 { font-size: 1.7rem; }
+  label { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: var(--brass); display: grid; gap: 8px; }
+  input, select, textarea { font: inherit; font-size: 15px; letter-spacing: 0; text-transform: none; padding: 13px 14px; border: 1px solid rgba(201,160,99,.3); background: var(--green-2); color: var(--cream); width: 100%; border-radius: 0; color-scheme: dark; }
+  input:focus, select:focus, textarea:focus { outline: 0; border-color: var(--brass); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .maps { width: 100%; height: 300px; border: 0; margin-top: 56px; filter: grayscale(.5) sepia(.2) brightness(.85); }
+
+  footer { text-align: center; padding: 36px 24px 120px; font-size: 13px; color: #8d9889; border-top: 1px solid rgba(201,160,99,.2); }
+
+  .orderbar { position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 150%); z-index: 60; background: var(--cream); color: var(--ink); display: flex; align-items: center; gap: 22px; padding: 10px 10px 10px 26px; box-shadow: 0 14px 40px rgba(0,0,0,.45); transition: transform .5s; width: max-content; max-width: calc(100vw - 32px); border: 1px solid var(--brass); }
+  .orderbar.show { transform: translate(-50%, 0); }
+  .orderbar small { display: block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #6b665a; line-height: 1.3; }
+  .orderbar strong { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: #8a6a35; line-height: 1.2; }
+  .orderbar .btn { padding: 14px 24px; }
+  .fab { position: fixed; right: 20px; bottom: 20px; z-index: 55; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: .3s; }
+  .fab:hover { transform: scale(1.08); }
+  .fab svg { width: 28px; height: 28px; fill: #fff; }
+  body.ordering .fab { opacity: 0; pointer-events: none; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s, transform .9s; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 880px) {
+    section { padding: 80px 0; }
+    .burger { display: block; }
+    .menu { position: fixed; inset: 82px 0 auto 0; flex-direction: column; gap: 0; background: var(--green); border-bottom: 1px solid rgba(201,160,99,.25); padding: 6px 24px 26px; transform: translateY(-120%); transition: transform .4s; z-index: -1; align-items: stretch; }
+    .menu.open { transform: none; }
+    .menu li { border-bottom: 1px solid rgba(201,160,99,.15); }
+    .menu a { display: block; padding: 17px 0; }
+    .menu .cta { text-align: center; margin-top: 16px; padding: 15px; border: 0; }
+    .about-grid, .res-grid, .panel.active { grid-template-columns: 1fr; gap: 48px; }
+    .panel.active { gap: 0; }
+    .hero { padding-bottom: 150px; }
+    .info-strip .wrap { grid-template-columns: 1fr; padding-top: 6px; padding-bottom: 6px; }
+    .info-strip div { padding: 6px 0; }
+    .info-strip div:nth-child(n+3) { display: none; }
+    .gal { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+    .gal div:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .gal div:nth-child(4) { grid-column: span 1; }
+    .row2 { grid-template-columns: 1fr; }
+    form { padding: 26px; }
+    .pillars { gap: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <nav aria-label="Menu utama">
+      <a href="#" class="logo">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c-4 5-9 8-9 14a9 9 0 0 0 18 0c0-6-5-9-9-14Z"/><path d="M16 12v17"/></svg>
+        Saung Ambu
+      </a>
+      <button class="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="menu">
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#suasana">Suasana</a></li>
+        <li><a href="#reservasi">Lokasi</a></li>
+        <li><a href="#reservasi" class="cta">Reservasi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Masakan Sunda Modern · Lembang</p>
+      <h1>Rasa <em>rumahan,</em> disajikan dengan hormat.</h1>
+      <p>Resep turun-temurun dari dapur Ambu, dimasak dengan bahan segar dari kebun Lembang dan disajikan di saung yang sejuk.</p>
+      <div class="btns">
+        <a href="#reservasi" class="btn solid">Reservasi Meja</a>
+        <a href="#menu" class="btn">Lihat Menu</a>
+      </div>
+    </div>
+    <div class="info-strip">
+      <div class="wrap">
+        <div><b>Buka</b>Setiap hari · 10.00 — 21.30</div>
+        <div><b>Lokasi</b>Jl. Raya Lembang, Bandung Barat</div>
+        <div><b>Reservasi</b>Via WhatsApp</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="wrap about-grid">
+      <div class="img-stack reveal" role="img" aria-label="Hidangan dan suasana saung"><div class="a"></div><div class="b"></div></div>
+      <div class="about reveal">
+        <p class="eyebrow">Tentang Kami</p>
+        <h2>Dari dapur Ambu, <em>untuk meja keluarga</em> Anda.</h2>
+        <p class="lead">Saung Ambu dimulai dari warung kecil di halaman rumah. Kini kami menyajikan masakan Sunda klasik dengan sentuhan modern: ayam goreng kampung, ikan bakar, lalab segar, dan sambal yang diulek langsung.</p>
+        <p class="lead">Cocok untuk makan keluarga, arisan, hingga acara kantor.</p>
+        <div class="pillars">
+          <div><b>Bahan Lokal</b><span>Sayur dari petani Lembang</span></div>
+          <div><b>Sambal Ulek</b><span>Dibuat segar tiap pesanan</span></div>
+          <div><b>Saung Privat</b><span>Hingga 40 tamu</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-sec">
+    <div class="wrap">
+      <p class="eyebrow reveal">Menu</p>
+      <h2 class="reveal">Hidangan <em>pilihan</em> Ambu.</h2>
+      <p class="lead reveal">Tekan <b>+</b> untuk menambah pesanan, lalu kirim lewat WhatsApp. Cocok untuk pesan antar atau persiapan sebelum datang.</p>
+
+      <div class="cats reveal" role="tablist">
+        <button class="cat active" data-tab="paket" role="tab">Paket</button>
+        <button class="cat" data-tab="utama" role="tab">Hidangan Utama</button>
+        <button class="cat" data-tab="sayur" role="tab">Sayur &amp; Lalab</button>
+        <button class="cat" data-tab="minum" role="tab">Minuman &amp; Penutup</button>
+      </div>
+
+      <div class="panel active" id="paket">
+        <div class="item" data-name="Paket Liwet Ambu (4 orang)" data-price="285000"><div class="txt"><h3>Paket Liwet Ambu <small>Favorit</small></h3><p>Nasi liwet, ayam goreng, tahu tempe, ikan asin, lalab, sambal. Untuk 4 orang.</p></div><span class="price">285K</span></div>
+        <div class="item" data-name="Paket Keluarga (6 orang)" data-price="410000"><div class="txt"><h3>Paket Keluarga</h3><p>Nasi liwet, ayam bakar, gurame goreng, sayur asem, lalab. Untuk 6 orang.</p></div><span class="price">410K</span></div>
+        <div class="item" data-name="Paket Berdua" data-price="125000"><div class="txt"><h3>Paket Berdua</h3><p>Nasi timbel, ayam goreng, tahu tempe, lalab, 2 es teh manis.</p></div><span class="price">125K</span></div>
+        <div class="item" data-name="Nasi Timbel Komplit" data-price="55000"><div class="txt"><h3>Nasi Timbel Komplit</h3><p>Dibungkus daun pisang, ayam, pepes, lalab.</p></div><span class="price">55K</span></div>
+      </div>
+
+      <div class="panel" id="utama">
+        <div class="item" data-name="Ayam Goreng Kampung" data-price="38000"><div class="txt"><h3>Ayam Goreng Kampung</h3><p>Bumbu kuning, ditabur serundeng.</p></div><span class="price">38K</span></div>
+        <div class="item" data-name="Gurame Bakar" data-price="95000"><div class="txt"><h3>Gurame Bakar <small>Chef</small></h3><p>Dibakar arang, bumbu kecap pedas.</p></div><span class="price">95K</span></div>
+        <div class="item" data-name="Pepes Ikan Mas" data-price="42000"><div class="txt"><h3>Pepes Ikan Mas</h3><p>Dikukus dalam daun pisang, kemangi.</p></div><span class="price">42K</span></div>
+        <div class="item" data-name="Iga Bakar Madu" data-price="78000"><div class="txt"><h3>Iga Bakar Madu</h3><p>Empuk, glaze madu hutan.</p></div><span class="price">78K</span></div>
+        <div class="item" data-name="Empal Gepuk" data-price="58000"><div class="txt"><h3>Empal Gepuk</h3><p>Daging sapi dipukul, digoreng manis gurih.</p></div><span class="price">58K</span></div>
+        <div class="item" data-name="Nasi Liwet (per porsi)" data-price="18000"><div class="txt"><h3>Nasi Liwet</h3><p>Harum serai, daun salam, teri.</p></div><span class="price">18K</span></div>
+      </div>
+
+      <div class="panel" id="sayur">
+        <div class="item" data-name="Sayur Asem" data-price="24000"><div class="txt"><h3>Sayur Asem</h3><p>Segar asam manis, jagung, labu siam.</p></div><span class="price">24K</span></div>
+        <div class="item" data-name="Lalab & Sambal Dadak" data-price="22000"><div class="txt"><h3>Lalab &amp; Sambal Dadak</h3><p>Aneka lalab mentah, sambal diulek langsung.</p></div><span class="price">22K</span></div>
+        <div class="item" data-name="Karedok" data-price="26000"><div class="txt"><h3>Karedok</h3><p>Sayur mentah, bumbu kacang kencur.</p></div><span class="price">26K</span></div>
+        <div class="item" data-name="Tahu Tempe Goreng" data-price="18000"><div class="txt"><h3>Tahu Tempe Goreng</h3><p>Hangat dan renyah.</p></div><span class="price">18K</span></div>
+      </div>
+
+      <div class="panel" id="minum">
+        <div class="item" data-name="Es Cendol Ambu" data-price="24000"><div class="txt"><h3>Es Cendol Ambu</h3><p>Santan, gula aren, cendol pandan.</p></div><span class="price">24K</span></div>
+        <div class="item" data-name="Bandrek Susu" data-price="22000"><div class="txt"><h3>Bandrek Susu</h3><p>Jahe, gula aren, kayu manis. Hangat.</p></div><span class="price">22K</span></div>
+        <div class="item" data-name="Es Teh Manis" data-price="10000"><div class="txt"><h3>Es Teh Manis</h3><p>Teh melati, gula batu.</p></div><span class="price">10K</span></div>
+        <div class="item" data-name="Surabi Oncom" data-price="20000"><div class="txt"><h3>Surabi</h3><p>Kuah kinca gula aren atau oncom.</p></div><span class="price">20K</span></div>
+      </div>
+      <p class="note reveal">Harga dalam ribu rupiah (K). Belum termasuk pajak dan biaya layanan.</p>
+    </div>
+  </section>
+
+  <section id="suasana">
+    <div class="wrap center">
+      <p class="eyebrow reveal">Suasana</p>
+      <h2 class="reveal" style="text-align:center">Makan di antara <em>kebun dan kabut.</em></h2>
+      <div class="gal reveal">
+        <div style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=600&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=70')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=70')"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservasi" class="res">
+    <div class="wrap res-grid">
+      <div class="reveal">
+        <p class="eyebrow">Reservasi &amp; Lokasi</p>
+        <h2>Siapkan meja untuk <em>keluarga Anda.</em></h2>
+        <p class="lead">Akhir pekan cepat penuh. Reservasi minimal 1 hari sebelumnya, dan untuk rombongan di atas 10 orang mohon hubungi kami lebih awal.</p>
+        <ul class="hours">
+          <li><span>Senin — Jumat</span><span>10.00 — 21.00</span></li>
+          <li><span>Sabtu — Minggu</span><span>09.00 — 21.30</span></li>
+        </ul>
+        <div class="addr">
+          <b>Alamat</b><p>Jl. Raya Lembang No. 88, Lembang, Kab. Bandung Barat, Jawa Barat</p>
+          <b>Parkir</b><p>Area parkir luas, aman untuk bus kecil.</p>
+        </div>
+      </div>
+      <form class="reveal" id="rsv">
+        <h3>Reservasi Meja</h3>
+        <label>Nama<input name="nama" required placeholder="Nama pemesan"></label>
+        <div class="row2">
+          <label>Tanggal<input type="date" name="tgl" required></label>
+          <label>Jam<select name="jam"><option>11.00</option><option>12.00</option><option>13.00</option><option>18.00</option><option>19.00</option><option>20.00</option></select></label>
+        </div>
+        <div class="row2">
+          <label>Jumlah tamu<input type="number" name="tamu" min="1" max="40" value="4" required></label>
+          <label>Area<select name="area"><option>Saung lesehan</option><option>Meja kursi</option><option>Saung privat</option></select></label>
+        </div>
+        <label>Catatan<textarea name="catatan" rows="2" placeholder="Contoh: ada kursi bayi, acara ulang tahun"></textarea></label>
+        <button class="btn wa" type="submit">Kirim Reservasi via WhatsApp</button>
+      </form>
+    </div>
+    <div class="wrap">
+      <iframe class="maps" title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Lembang+Bandung+Barat&amp;output=embed"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Saung Ambu · Konsep desain demo</footer>
+
+<div class="orderbar" id="orderbar" role="status">
+  <div><small><span id="count">0</span> item</small><strong id="total">Rp 0</strong></div>
+  <a class="btn wa" id="send" href="#" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+</div>
+
+<a class="fab" href="#" data-wa="Halo Saung Ambu, saya mau bertanya." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.47 15l-1.5 5.5 5.63-1.48A9.92 9.92 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.05-1.17.07-1.88-.12a17 17 0 0 1-1.7-.63c-3-1.3-4.95-4.3-5.1-4.5-.15-.2-1.2-1.6-1.2-3.05 0-1.45.75-2.15 1.03-2.45.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.52.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.5-.15.15-.3.3-.13.6.18.3.78 1.28 1.67 2.07 1.15 1 2.1 1.33 2.4 1.48.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></svg>
+</a>
+
+<script>
+  const WA = '62895365986531', STORE = 'Saung Ambu'; // ganti nomor WhatsApp & nama restoran
+  document.querySelectorAll('[data-wa]').forEach(a => a.href = `https://wa.me/${WA}?text=${encodeURIComponent(a.dataset.wa)}`);
+  const header = document.getElementById('top'), burger = document.querySelector('.burger'), menu = document.querySelector('.menu');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    if (open) header.classList.add('scrolled'); else onScroll();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false); onScroll();
+  }));
+  document.querySelectorAll('.cat').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.cat, .panel').forEach(e => e.classList.remove('active'));
+    t.classList.add('active'); document.getElementById(t.dataset.tab).classList.add('active');
+  }));
+
+  // Keranjang
+  const rp = n => 'Rp ' + n.toLocaleString('id-ID');
+  const cart = {};
+  document.querySelectorAll('.item[data-name]').forEach(item => {
+    const q = document.createElement('div');
+    q.className = 'qty';
+    q.innerHTML = '<button type="button" aria-label="Kurangi">−</button><output>0</output><button type="button" aria-label="Tambah">+</button>';
+    item.appendChild(q);
+    const out = q.querySelector('output'), [minus, plus] = q.querySelectorAll('button'), key = item.dataset.name;
+    const set = n => {
+      n = Math.max(0, n); out.textContent = n;
+      if (n) cart[key] = { n, price: +item.dataset.price }; else delete cart[key];
+      render();
+    };
+    plus.onclick = () => set((cart[key]?.n || 0) + 1);
+    minus.onclick = () => set((cart[key]?.n || 0) - 1);
+  });
+  const lines = () => Object.entries(cart).map(([name, v]) => `- ${v.n}x ${name} (${rp(v.n * v.price)})`).join('\n');
+  const totalOf = () => Object.values(cart).reduce((s, v) => s + v.n * v.price, 0);
+  function render() {
+    const count = Object.values(cart).reduce((s, v) => s + v.n, 0), total = totalOf();
+    document.getElementById('count').textContent = count;
+    document.getElementById('total').textContent = rp(total);
+    document.getElementById('orderbar').classList.toggle('show', count > 0);
+    document.body.classList.toggle('ordering', count > 0);
+    const msg = `Halo ${STORE}, saya mau pesan:\n${lines()}\n\nTotal: ${rp(total)}\n\nNama:\nMakan di tempat / antar / bawa pulang:`;
+    document.getElementById('send').href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // Reservasi -> WhatsApp
+  const tgl = document.querySelector('#rsv [name=tgl]');
+  tgl.min = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
+  document.getElementById('rsv').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, d = new Date(f.tgl.value).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const pre = Object.keys(cart).length ? `\n\nPre-order menu:\n${lines()}\nTotal: ${rp(totalOf())}` : '';
+    const msg = `Halo ${STORE}, saya mau reservasi.\n\nNama: ${f.nama.value}\nTanggal: ${d}\nJam: ${f.jam.value}\nJumlah tamu: ${f.tamu.value}\nArea: ${f.area.value}\nCatatan: ${f.catatan.value || '-'}${pre}`;
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  });
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
